@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import Movie from '../components/ExploreMovies/Movie';
 import Filter from '../components/ExploreMovies/Filter';
 import {motion, AnimatePresence} from "framer-motion";
+import { Box, Container, Heading, Text } from '@chakra-ui/react';
 
 function ExploreMovies() {
 
@@ -22,16 +23,29 @@ function ExploreMovies() {
   }
 
   return (
-    <div className="App">
-      <Filter popular={popular} setFiltered={setFiltered} activeGenre={activeGenre} setActiveGenre={setActiveGenre}/>
-      <motion.div  layout className='popular-movies'>
-        <AnimatePresence>
-        {filtered.map(movie => {
-          return <Movie key={movie.id} movie={movie}/> 
-        })}
-        </AnimatePresence>
-      </motion.div>
-    </div>
+    <Box  bg='white'>
+    <Container maxW={'5xl'}>
+      <Box pt={7} mb={7}>
+        <Heading
+        fontWeight={600}
+            fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
+            lineHeight={'110%'}
+           > #Explore Your <Text as={'span'} color={'orange.400'}>
+              Favorite Movie.
+            </Text></Heading>
+      </Box>
+      <div className="App">
+        <Filter popular={popular} setFiltered={setFiltered} activeGenre={activeGenre} setActiveGenre={setActiveGenre}/>
+        <motion.div layout className='popular-movies'>
+          <AnimatePresence>
+          {filtered.map(movie => {
+            return <Movie key={movie.id} movie={movie}/> 
+          })}
+          </AnimatePresence>
+        </motion.div>
+      </div>
+    </Container>
+    </Box>
   );
 }
 

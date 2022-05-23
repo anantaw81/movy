@@ -6,8 +6,13 @@ import {
     Text,
     Button,
     Icon,
-    IconProps,
+    IconProps, chakra
   } from '@chakra-ui/react';
+  import { motion, isValidMotionProp } from "framer-motion"
+
+  export const ChakraBox = chakra(motion.div,{
+    shouldForwardProp: (prop) => isValidMotionProp(prop) || prop === 'children',
+  }) 
   
   export default function Hero() {
     return (
@@ -17,6 +22,9 @@ import {
           align={'center'}
           spacing={{ base: 8, md: 10 }}
           py={{ base: 20, md: 28 }}>
+          <ChakraBox
+            whileHover={{ scale: 1.3 }}
+            whileTap={{ scale: 0.9 }}>
           <Heading
             fontWeight={600}
             fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
@@ -26,7 +34,8 @@ import {
               Favorite Movie.
             </Text>
           </Heading>
-          <Text color={'gray.500'} maxW={'3xl'}>
+          </ChakraBox>
+          <Text color={'gray.500'} maxW={'3xl'} >
           Thousand movies been there, over there, but you don’t know maybe how the movie rated. the summary, 
           the actress or actor starring. Making choices for watching movies been a cumbersome for person who doesn’t have time, 
           espicially me. I tend to only watch movies with good rating, or if my favorite actress/actors there. 
@@ -35,14 +44,23 @@ import {
           </Text>
           <Stack spacing={6} direction={'row'}>
             <Button
+              as={motion.button}
               rounded={'full'}
               px={6}
               colorScheme={'orange'}
               bg={'orange.400'}
-              _hover={{ bg: 'orange.500' }}>
+              _hover={{ bg: 'orange.500' }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}>
               Search Now
             </Button>
-            <Button rounded={'full'} px={6}>
+            <Button 
+              as={motion.button}
+              rounded={'full'} 
+              px={6}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              >
               Explore
             </Button>
           </Stack>
