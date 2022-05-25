@@ -6,13 +6,13 @@ import {
   Link,
   VStack,
   Code,
-  Grid, 
+  Grid,
   extendTheme,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
 import { Global } from '@emotion/react';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Hompage from './pages/Hompage';
 import ExploreMovies from './pages/ExploreMovies';
 import DetailsMovie from './pages/DetailsMovie';
@@ -20,8 +20,7 @@ import NotFound from './pages/NotFound';
 
 const Fonts = () => (
   <Global
-  styles={
-    `
+    styles={`
     /* cyrillic-ext */
     @font-face {
       font-family: 'Inter';
@@ -85,14 +84,14 @@ const Fonts = () => (
       src: url(https://fonts.gstatic.com/s/inter/v11/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2) format('woff2');
       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
-    `
-  }/>
-)
+    `}
+  />
+);
 
 const theme = extendTheme({
   fonts: {
     heading: 'Mermaid, sans-serif',
-    body: 'Helvetica, sans-serif'
+    body: 'Helvetica, sans-serif',
   },
   colors: {
     brand: {
@@ -105,20 +104,20 @@ const theme = extendTheme({
       600: '#5BADE6',
       700: '#3793D3',
       800: '#0C82D3',
-      900: '#ED8936'
-    }
+      900: '#ED8936',
+    },
   },
-})
+});
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <Router>
         <Routes>
-          <Route path='/' element={<Hompage/>} exact/>
-          <Route path='/explore' element={<ExploreMovies/>} exact/>
-          <Route path='/details' element={<DetailsMovie/>} exact/>
-          <Route path='*' element={<NotFound/>}/>
+          <Route path="/" element={<Hompage />} exact />
+          <Route path="/explore" element={<ExploreMovies />} exact />
+          <Route path="/details/:movieId" element={<DetailsMovie />} exact />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
       {/* <Box textAlign="center" fontSize="xl">

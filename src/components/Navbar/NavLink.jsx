@@ -1,10 +1,10 @@
-import { Link, useColorModeValue as mode } from '@chakra-ui/react'
-import * as React from 'react'
+import { Button, Link, useColorModeValue as mode } from '@chakra-ui/react';
+import * as React from 'react';
 
-export const NavLink = (props) => {
-  const { isActive, ...rest } = props
+export const NavLink = props => {
+  const { isActive, ...rest } = props;
   return (
-    <Link
+    <Button
       display="block"
       py={2}
       px={3}
@@ -22,5 +22,5 @@ export const NavLink = (props) => {
       }}
       {...rest}
     />
-  )
-}
+  );
+};

@@ -1,3 +1,7 @@
+## API Source
+
+This project using API from -> https://www.themoviedb.org/documentation/api
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
